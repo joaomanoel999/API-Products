@@ -51,11 +51,11 @@ public class ProductService {
     }
 
     public ProductDTO update(Long id, ProductDTO productDTO) {
-        // Verifica se o produto existe antes de atualizar
+
         repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado para atualizar com o ID: " + id));
 
-        productDTO.setId(id); // Garante que estamos atualizando o ID correto
+        productDTO.setId(id);
         Product product = mapper.toEntity(productDTO);
         Product updatedProduct = repository.save(product);
         return mapper.toDTO(updatedProduct);

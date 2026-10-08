@@ -3,15 +3,15 @@ package com.projeto.produtos.DTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class ProductDTO {
+public class OrderDTO {
     private Long id;
-    private String name;
-    private String category;
-    private BigDecimal price;
-    private Integer stockQuantity;
+    private LocalDateTime orderDate;
+    private BigDecimal totalAmount;
+    private Long clientId;
 }

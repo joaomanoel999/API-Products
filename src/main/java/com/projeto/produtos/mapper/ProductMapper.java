@@ -22,7 +22,6 @@ public class ProductMapper {
         return dto;
     }
 
-    // Transforma o DTO recebido da internet em uma Entidade para salvar no Banco
     public Product toEntity(ProductDTO dto) {
         if (dto == null) {
             return null;
