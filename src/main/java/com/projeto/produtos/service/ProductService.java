@@ -43,7 +43,7 @@ public class ProductService {
 
         Product product = mapper.toEntity(productDTO);
 
-        // 2. Salva no banco usando o Repository
+
         Product savedProduct = repository.save(product);
 
         // 3. Transforma a entidade salva de volta em DTO e devolve
