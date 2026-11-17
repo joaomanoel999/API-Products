@@ -4,7 +4,7 @@ import com.projeto.produtos.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,9 +28,9 @@ public class SecurityFilter extends OncePerRequestFilter {
         var token = recoverToken(request);
 
         if (token != null) {
-            var email = tokenService.validateToken(token);
-            if (!email.isEmpty()) {
-                UserDetails user = userRepository.findByUsername(email);
+            var username = tokenService.validateToken(token);
+            if (!username.isEmpty()) {
+                UserDetails user = userRepository.findByUsername(username);
 
                 if (user != null) {
                     var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());

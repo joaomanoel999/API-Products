@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductMapper {
 
-    // Transforma a Entidade do Banco em DTO para enviar ao usuário
     public ProductDTO toDTO(Product product) {
         if (product == null) {
             return null;
@@ -19,6 +18,7 @@ public class ProductMapper {
         dto.setCategory(product.getCategory());
         dto.setPrice(product.getPrice());
         dto.setStockQuantity(product.getStockQuantity());
+        dto.setImageUrl(product.getImageUrl()); // NOVO
         return dto;
     }
 
@@ -33,6 +33,7 @@ public class ProductMapper {
         product.setCategory(dto.getCategory());
         product.setPrice(dto.getPrice());
         product.setStockQuantity(dto.getStockQuantity());
+        product.setImageUrl(dto.getImageUrl());
         return product;
     }
 }
